@@ -16,26 +16,68 @@
 				font-size: 20px;
 				height: 50px;
 			}
-			#game{
+			.game{
 				background-color: #eee;
 				border: 1px solid black;
-				float: left;
-				width: 20%;
+				padding: 10%;
 			}
-			#main{
-				background-color: #eee;
+			.container{
+				display: flex;
 				height: 750px;
-				margin-left:22%;
 			}
-			#footer{
+			.dx, .dy, .r{
+				background-color: #eee;	
+				padding: 10%;
+				height: 45%;
+			}
+			.footer{
 				font-size: 14px;
+				padding: 0%;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="header">Игнатов Петр Дмитриевич, P3216, вариант XXXX</div>
-		<div id="game">This game has no name</div>
-		<div id="main">Основное содержимое</div>
-		<div id="footer">г. Санкт-Петербург, НИУ "ИТМО", 2024 г.
+		<div class="header">Игнатов Петр Дмитриевич, P3216, вариант XXXX</div>
+		<div class="container">
+			<div class="dx">
+				<form>
+					<a>X:</a>
+					<p>
+						<button type="button">-4</button>
+						<button type="button">-3</button>
+						<button type="button">-2</button>
+						<button type="button">-1</button>
+						<button type="button">0</button>
+						<button type="button">1</button>
+						<button type="button">2</button>
+						<button type="button">3</button>
+						<button type="button">4</button>
+					</p>
+				</form>
+			</div>
+			<div class="dy">
+				<form>
+					<a>Y:</a>
+					<p>
+						<input type="text" name="Y:"></input>
+					</p>
+				</form>
+			</div>
+			<div class="r">
+				<form method="get">
+					<a>R:</a>
+					<p>
+						<select multiple id="r" name="r">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</p>
+			</div>
+			<div class="game">This game has no name</div>
+		</div>
+		<div class="footer">г. Санкт-Петербург, НИУ "ИТМО", 2024 г.
 	</body>
 </html>
