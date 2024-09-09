@@ -3,81 +3,124 @@
 	<head>
 		<meta charset="utf-8">
 		<title>АААААААААА</title>
-		<style>
-			body{
-				background-image: url('http://grob-hroniki.org/img/other/original/1989_rpe/rpe_01.jpg');
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				background-position: center;
-				background-size: cover;
-			}
-			div{
-				margin: 1%;	
-				font-size: 20px;
-				height: 50px;
-			}
-			.game{
-				background-color: #eee;
-				border: 1px solid black;
-				padding: 10%;
-			}
-			.container{
-				display: flex;
-				height: 750px;
-			}
-			.dx, .dy, .r{
-				background-color: #eee;	
-				padding: 10%;
-				height: 45%;
-			}
-			.footer{
-				font-size: 14px;
-				padding: 0%;
-			}
-		</style>
 	</head>
 	<body>
-		<div class="header">Игнатов Петр Дмитриевич, P3216, вариант XXXX</div>
-		<div class="container">
-			<div class="dx">
-				<form>
-					<a>X:</a>
-					<p>
-						<button type="button">-4</button>
-						<button type="button">-3</button>
-						<button type="button">-2</button>
-						<button type="button">-1</button>
-						<button type="button">0</button>
-						<button type="button">1</button>
-						<button type="button">2</button>
-						<button type="button">3</button>
-						<button type="button">4</button>
-					</p>
-				</form>
-			</div>
-			<div class="dy">
-				<form>
-					<a>Y:</a>
-					<p>
-						<input type="text" name="Y:"></input>
-					</p>
-				</form>
-			</div>
-			<div class="r">
-				<form method="get">
-					<a>R:</a>
-					<p>
-						<select multiple id="r" name="r">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select>
-					</p>
-			</div>
-			<div class="game">This game has no name</div>
-		</div>
-		<div class="footer">г. Санкт-Петербург, НИУ "ИТМО", 2024 г.
+		<table style="width: 100%; border=1%">
+			<tr>
+				<td colspan="2">
+					<h1>Игнатов Петр Дмитриевич, P3216, вариант 408693</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form>
+						<a>X:</a>
+						<p>
+							<input type="text" name="X:"></input>	
+						</p>
+					</form>
+				</td>
+				<td>
+					<form>
+						<a>Y:</a>
+						<p>
+							<input type="radio" name="y" id="-2y" value="-2"></input>
+							<label for="-2y">-2</label>
+							<input type="radio" name="y" id="-1.5y" value="-1.5"></input>
+							<label for="-1.5y">-1.5</label>
+							<input type="radio" name="y" id="-1y" value="-1"></input>
+							<label for="-1y">-1</label>
+							<input type="radio" name="y" id="-0.5y" value="-0.5"></input>
+							<label for="-0.5y">-0.5</label>
+							<input type="radio" name="y" id="0y" value="0"></input>
+							<label for="0y">0</label>
+							<input type="radio" name="y" id="0.5y" value="0.5"></input>
+							<label for="0.5y">0.5</label>
+							<input type="radio" name="y" id="1y" value="1"></input>
+							<label for="1y">1</ilabel>
+							<input type="radio" name="y" id="1.5y" value="1.5"></input>
+							<label for="1.5y">1.5</label>
+							<input type="radio" name="y" id="2y" value="2"></input>
+							<label for="2y">2</label>
+						</p>
+					</form>
+				</td>
+				<td>
+					<h3>This game has no name</h3>
+					<svg height="300" width="300" xmlns="http://www.w3.org/2000/svg">
+
+						<line stroke="gray" x1="0" x2="300" y1="150" y2="150" />
+						<line stroke="gray" x1="150" x2="150" y1="0" y2="300" />
+						<polygon fill="white" points="150,0 144,15 156,15" stroke="white" />
+						<polygon fill="white" points="300,150 285,156 285,144" stroke="white" />
+
+						<line stroke="gray" x1="200" x2="200" y1="155" y2="145" />
+						<line stroke="gray" x1="250" x2="250" y1="155" y2="145" />
+
+						<line stroke="gray" x1="50" x2="50" y1="155" y2="145" />
+						<line stroke="gray" x1="100" x2="100" y1="155" y2="145" />
+
+						<line stroke="gray" x1="145" x2="155" y1="100" y2="100" />
+						<line stroke="gray" x1="145" x2="155" y1="50" y2="50" />
+
+						<line stroke="gray" x1="145" x2="155" y1="200" y2="200" />
+						<line stroke="gray" x1="145" x2="155" y1="250" y2="250" />
+
+						<text fill="black" x="195" y="140">R/2</text>
+						<text fill="black" x="248" y="140">R</text>
+
+						<text fill="black" x="40" y="140">-R</text>
+						<text fill="black" x="90" y="140">-R/2</text>
+
+						<text fill="black" x="160" y="105">R/2</text>
+						<text fill="black" x="160" y="55">R</text>
+
+						<text fill="black" x="160" y="205">-R/2</text>
+						<text fill="black" x="160" y="255">-R</text>
+
+						<text fill="black" x="160" y="10">Y</text>
+						<text fill="black" x="290" y="140">X</text>
+
+						<rect x="150" y="100" width="100" height="50" fill="#FFFF00" fill-opacity="0.1" stroke="#FFFF00" />
+
+						<polygon fill="#0000FF" fill-opacity="0.1" points="150,150 150,250 200,150" stroke="#0000FF" />
+
+						<path d="M 50 150 A 100 100, 0, 0, 0, 150 250 L 150 150 Z" fill="green" fill-opacity="0.1" stroke="#39FF14" />
+
+						<circle cx="150" cy="150" id="target-dot" r="0" stroke="white" fill="white"></circle>
+					</svg>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form method="get">
+						<a>R:</a>
+						<p>
+							<input type="radio" name="r" id="1r" value="1"></input>
+							<label for="1r">1</label>
+							<input type="radio" name="r" id="1.5r" value="1.5"></input>
+							<label for="1.5r">1.5</label>
+							<input type="radio" name="r" id="2r" value="2"></input>
+							<label for="2r">2</ilabel>
+							<input type="radio" name="r" id="2.5r" value="2.5"></input>
+							<label for="2.5r">2.5</label>
+							<input type="radio" name="r" id="3r" value="3"></input>
+							<label for="3r">3</label>
+						</p>
+					</form>
+				</td>
+				<td>
+					<button>Проверить</button>
+				</td>
+				<td>
+					<h3>Предыдущие данные</h3>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h6>г. Санкт-Петербург, НИУ "ИТМО", 2024 г.</h6>
+				</td>
+			</tr>
+		</table>
 	</body>
 </html>
