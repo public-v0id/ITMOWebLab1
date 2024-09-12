@@ -15,7 +15,7 @@ mainBtn.addEventListener('click', function(e) {
 		fetch('http://localhost:8080/fcgi-bin/server.jar', {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'applicaion/json'
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
 				x: xVal,
@@ -24,7 +24,7 @@ mainBtn.addEventListener('click', function(e) {
 			})
 		}).then(response => response.json()).then(data => {
 			console.log("SUCCESS! ", data);
-		}.catch((error) => {
+		}).catch((error) => {
 			console.error("ERROR! ", error);
 		});
 	}
