@@ -12,7 +12,8 @@ mainBtn.addEventListener('click', function(e) {
 	let val = new validator();
 	val.validate(xVal, yVal, rVal);
 	if (val.getRespCode() == 0) {
-		fetch('http://localhost:8080/fcgi-bin/server.jar', {
+		const url = new URL('./fcgi-bin/lab1.jar', window.location.href);
+		fetch(url.href, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

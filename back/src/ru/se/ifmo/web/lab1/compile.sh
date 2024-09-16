@@ -1,1 +1,1 @@
-javac -cp .:../../../../../../output/fastcgi-lib.jar Main.java -d ../../../../../../output/
+javac -cp .:../../../../../../output/fastcgi-lib.jar classes/Parameters.java Main.java -d ../../../../../../output/
