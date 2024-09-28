@@ -69,8 +69,7 @@ mainBtn.addEventListener('click', function(e) {
 			const tres = document.createElement('td');
 			const textime = document.createElement('td');
 			const tservtime = document.createElement('td');
-			const xS = xVal.substring(15);
-			tx.textContent = xS;
+			tx.textContent = xVal;
 			ty.textContent = yVal;
 			tr.textContent = rVal;
 			tres.textContent = data.res;

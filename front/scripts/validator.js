@@ -6,7 +6,7 @@ export default class validator {
 	validate(xVal, yVal, rVal) {
 		let yFlVal = parseFloat(yVal);
 		let rFlVal = parseFloat(rVal);
-		if ((isNaN(xVal)) || (xVal.trim() == "")) {
+		if ((isNaN(xVal)) || (xVal.trim() == "") || parseFloat(xVal) < -3 || parseFloat(xVal) > 5) {
 			alert("Ошибка! Введено неправильное значение X!");
 			this.respCode = 1;
 		}
