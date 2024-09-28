@@ -17,7 +17,7 @@ public class Parameters {
 	}
 
 	public boolean isValid() {
-		return valid;
+		return valid && (y >= -2) && (y <= 2) && (r >= 1) && (r <= 3);
 	}
 	
 	public double getX() {
