@@ -6,8 +6,18 @@ import java.io.*;
 import java.nio.*;
 import ru.se.ifmo.web.lab1.classes.*;
 import java.util.logging.*;
+import java.util.*;
+import ru.se.ifmo.web.lab1.exceptions.*;
+import ru.se.ifmo.web.lab1.queries.*;
 
 public class Parser {
+	private static HashMap<String, IQuery> query;
+
+	static {
+		query = new HashMap<String, IQuery>();
+		query.put("POST", new POSTQuery());
+	}
+
 	private static final String HTTP_SUCCESS = """
 		Content-Type: application/json
 		Content-Length: %d
@@ -35,10 +45,11 @@ public class Parser {
 		}
 		""";
 
-	public static Parameters JSONtoParams(String query, Logger logger) {
+	public static Parameters JSONtoParams(String query) throws JSONConvException {
+		Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 		String s = query.replace("{", "").replace("}", "");
 		if (s == null) {
-			return new Parameters(0, 0, 0, false);
+			throw new JSONConvException("Empty query! Couldn't parse to parameters");
 		}
 		String[] pair = s.split(",");
 		double x = 0;
@@ -79,39 +90,31 @@ public class Parser {
 				}
 			}
 		}
+		if (!xSet || !ySet || !rSet) {
+			throw new JSONConvException("Not all parameters are met in JSON! Couldn't create object!");
+		}
 		logger.log(Level.INFO, Double.toString(x) + " " + Double.toString(y) + " " + Double.toString(r));
-		return new Parameters(x, y, r, xSet && ySet && rSet);
-	}
-
-	public static String genJSONresp(boolean res, double applTime, Logger logger) {
 		try {
-			logger.log(Level.INFO, "Started generating");
-			String json = String.format(RESULT_JSON, res, "\"" + Double.toString(applTime) + "\"", "\"" + Instant.now().toString() + "\"");
-			logger.log(Level.INFO, json);
-			json = json.trim();
-			return String.format(HTTP_SUCCESS, json.getBytes(StandardCharsets.UTF_8).length, json);
+			return new Parameters(x, y, r);
 		}
-		catch (Exception e) {
-			logger.log(Level.WARNING, e.getMessage());
-			return "";
+		catch (ParametersException e) {
+			throw new JSONConvException("Unable to create Parameters object!");
 		}
 	}
 
-	public static QueryEnum StringtoQuery(String query) {
-		switch (query) {
-			case "POST":
-				return QueryEnum.POST;
-			default:
-				return QueryEnum.NOTPOST;
-		}
+	public static String genJSONresp(boolean res, double applTime) {
+		Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		logger.log(Level.INFO, "Started generating");
+		String json = String.format(RESULT_JSON, res, "\"" + Double.toString(applTime) + "\"", "\"" + Instant.now().toString() + "\"");
+		logger.log(Level.INFO, json);
+		json = json.trim();
+		return String.format(HTTP_SUCCESS, json.getBytes(StandardCharsets.UTF_8).length, json);
 	}
 
-	public static int StringtoInt(String query) {
-		switch (query) {
-			case "POST":
-				return 0;
-			default:
-				return 1;
+	public static IQuery StringtoQuery(String q) {
+		if (query.containsKey(q)) {
+			return query.get(q);
 		}
+		return new UnknownQuery(); 
 	}
 }

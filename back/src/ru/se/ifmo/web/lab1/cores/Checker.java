@@ -4,14 +4,8 @@ import ru.se.ifmo.web.lab1.classes.*;
 import java.util.logging.*;
 
 public class Checker {
-	public static boolean check(Parameters params, Logger logger) {
-		try {
-			return params.isValid() && (checkRect(params) || checkTriangle(params) || checkCircle(params));
-		}
-		catch (Exception e) {
-			logger.log(Level.WARNING, e.getMessage());
-			return false;
-		}
+	public static boolean check(Parameters params) {
+		return checkRect(params) || checkTriangle(params) || checkCircle(params);
 	}
 
 	private static boolean checkRect(Parameters params) {
