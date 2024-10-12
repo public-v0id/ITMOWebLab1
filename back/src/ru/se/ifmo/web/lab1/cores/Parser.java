@@ -67,23 +67,44 @@ public class Parser {
 						{
 							String val = cur[1].replaceAll("\"", "");
 							if (val.length() > 10) {
-								x = (val.charAt(0) == '-' ? -1 : 1) * 1e10;
+								throw new JSONConvException("error! too long value!");
 							}
-							x = Double.parseDouble(val);
+							try {
+								x = Double.parseDouble(val);
+							}
+							catch (Exception e) {
+								throw new JSONConvException("error! too long value!");
+							}
 							xSet = true;
 						}
 						break;
 					case "y":
 						{
 							String val = cur[1].replaceAll("\"", "");
-							y = Double.parseDouble(val);
+							if (val.length() > 10) {
+								throw new JSONConvException("error! too long value!");
+							}
+							try {
+								y = Double.parseDouble(val);
+							}
+							catch (Exception e) {
+								throw new JSONConvException("error! too long value!");
+							}
 							ySet = true;
 						}
 						break;
 					case "r":
 						{
 							String val = cur[1].replaceAll("\"", "");
-							r = Double.parseDouble(val);
+							if (val.length() > 10) {
+								throw new JSONConvException("error! too long value!");
+							}
+							try {
+								r = Double.parseDouble(val);
+							}
+							catch (Exception e) {
+								throw new JSONConvException("error! too long value!");
+							}
 							rSet = true;
 						}
 						break;
